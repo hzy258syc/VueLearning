@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="on_click">点我</button>
+    <p v-show="show">Alex DSX</p>
+
+    <p v-if="a =='if_show'">DSX</p>
+    <p v-else>ALex</p>
+
+</div>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            show: false,
+            a: "if_show"
+        },
+        methods: {
+            on_click: function () {
+                this.show = ! this.show;
+                console.log(this.show);
+            }
+        }
+
+    })
+    // if appendChild
+    // show  display
+</script>
+</body>
+</html>

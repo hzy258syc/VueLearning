@@ -1,0 +1,73 @@
+ES6 新语法
+	-- 变量的定义 var let const
+	-- 模板字符串
+		-- 反引号
+		-- ${} 简单的表达式
+	-- 箭头函数 类比我们匿名函数
+		-- 省略function关键字
+		-- 省略了return关键字
+		-- 继承当前的上下文this
+			-- 最近的调用者是传递给函数的this
+	-- 类
+		-- 定义类 class
+		-- 构造函数 constructor
+		-- 继承 extends
+		-- super()继承父类的this
+	-- 数据的解构
+		-- 数组 []
+		-- 对象 {}
+	-- import export
+		-- 先抛出再导入
+
+Vue的常见指令
+	-- v-text v-html
+	-- v-model
+		-- input
+		-- textarea
+		-- select
+	-- v-for
+	-- v-bind (:)
+	-- v-on (@)
+	-- v-if v-else-if  v-else  appendChild
+	-- v-show   display
+	-- 指令修饰符  .lazy .number .trim
+	-- 自定义的指令
+		-- Vue.directive("指令的名称"，function)
+		-- function参数
+			-- el 标签元素
+			-- binding
+				-- binding.value  自定义指令的值
+				-- binding.modifiers  自定义修饰符
+
+	-- 计算属性 computed
+		-- 缓存
+		-- 只有在数据更新的时候才会重新计算
+
+组件：
+	-- 组件的注册
+		-- 全局
+		-- 局部
+		-- 子组件注册
+	-- 通信
+		-- 父子通信
+		-- 子父通信
+		-- 非父子通信
+	-- Mixins
+	-- Slot
+
+https://www.cnblogs.com/GGGG-XXXX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <alex></alex>
+    <wenzhou></wenzhou>
+</div>
+<script>
+    let Event = new Vue();
+    let alex = {
+        template: `<div>
+                    <p>Alex</p>
+                    <button @click="on_click">点我给文周降薪</button>
+                    </div>`,
+        methods: {
+            on_click: function () {
+                Event.$emit("alex_said", this.money)
+            }
+        },
+        data(){
+            return {
+                money: 10000,
+            }
+        }
+    };
+    let wenzhou = {
+        template: `<div>
+                        <p>哪吒</p>
+                        {{wz_money}}
+                    </div>`,
+        // 加载结束后执行的
+        mounted(){
+            let that = this;
+            Event.$on("alex_said", function (data) {
+                that.wz_money = data;
+                console.log(this)
+            })
+        },
+        data(){
+            return {
+                wz_money: "",
+            }
+        }
+    };
+
+
+
+
+    const app = new Vue({
+        el: "#app",
+        components: {
+            alex: alex,
+            wenzhou: wenzhou,
+        }
+    })
+
+</script>
+</body>
+</html>

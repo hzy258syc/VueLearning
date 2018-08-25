@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    用户名：
+    <input type="text" v-model.lazy.trim="name">
+    手机号：
+    <input type="text" v-model.number="phone">
+    <pre>{{name}}</pre>
+    {{typeof phone}}
+
+
+    <textarea name="" id="" cols="30" rows="10" v-model="article"></textarea>
+
+    {{article}}
+
+    <select v-model="from">
+        <option value="1">河北</option>
+        <option value="2">山西</option>
+    </select>
+
+    <select v-model="where" multiple>
+        <option value="1">上地</option>
+        <option value="2">西二旗</option>
+        <option value="3">三里屯</option>
+    </select>
+
+
+    {{from}}
+    {{where}}
+</div>
+<script>
+    // input
+    // textarea
+    // select
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            name: "",
+            phone: "",
+            article: "这是一大段文本~~~",
+            from: null,
+            where: []
+
+        }
+    })
+</script>
+</body>
+</html>

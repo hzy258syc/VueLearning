@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <style>
+        .active {
+            background: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<a v-bind:href="path">@马云</a>-->
+    <a :href="path">@马云</a>
+    <button @click="on_click">点我显示盒子的样式</button>
+    <div :class="{active: show}">盒子</div>
+
+    <div v-on="{mouseenter: onMouseenter, mouseleave: onMouseleave}">鼠标事件</div>
+
+
+</div>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            path: "http://www.taobao.com",
+            show: false
+        },
+        methods: {
+            on_click: function () {
+                this.show = ! this.show
+            },
+            onMouseenter: function () {
+                console.log("鼠标移入了")
+            },
+            onMouseleave: function () {
+                console.log("鼠标移出了")
+            }
+        }
+    })
+</script>
+</body>
+</html>

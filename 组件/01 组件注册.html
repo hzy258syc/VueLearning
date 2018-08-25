@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--<global_com></global_com>-->
+    <my_com></my_com>
+</div>
+
+
+<script>
+    // 全局注册
+    // Vue.component("global_com", {
+    //    template: `<div><h1>全局组件</h1></div>`
+    // });
+    // 局部注册
+    let my_com = {
+        template: `<div><h2>局部组件</h2> <h2>Alex</h2></div>`
+    };
+    const app = new Vue({
+        el: "#app",
+        components: {
+            my_com: my_com,
+        }
+    });
+
+</script>
+</body>
+</html>

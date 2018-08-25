@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <test>
+        <div slot="title"> 这是一个标题</div>
+
+
+        <div slot="footer">这是底部</div>
+    </test>
+</div>
+
+<template id="panel-tpl">
+    <div>
+            <slot name="title"></slot>
+        <hr>
+
+            <slot name="content"></slot>
+        <hr>
+        <!--<div class="content">Failure is probably the fortification in your pole. It is like a peek your wallet as the thief, when you are thinking how to spend several hard-won lepta,</div>-->
+
+            <slot name="footer"></slot>
+
+    </div>
+</template>
+
+<script>
+    let test = {
+        template: "#panel-tpl"
+    };
+    const app = new Vue({
+        el: "#app",
+        components: {
+            test: test
+        }
+    })
+</script>
+</body>
+</html>

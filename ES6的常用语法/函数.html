@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div>
+
+</div>
+
+<script>
+    // 省略了function 以及函数名
+    // 省略了return
+    // 继承当前上下文的this
+    // this 取决与函数的调用者
+    // 函数的最近的调用者当成this传递给函数
+    function aa() {
+        console.log(this)
+    }
+    let obj = {
+        a:1,
+        aa: aa,
+    };
+    let obj2 = {
+        obj: obj
+    };
+    aa()
+    obj.aa()
+    obj2.obj.aa()
+
+
+
+    // let aa = x => x+1;
+    //
+    // function test(x) {
+    //     return x+1
+    // }
+</script>
+</body>
+</html>

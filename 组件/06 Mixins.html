@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <popup></popup>
+    <tip></tip>
+</div>
+
+<script>
+    let base = {
+        methods: {
+            on_show: function () {
+                this.show = true
+            },
+            on_hide: function () {
+                this.show = false
+            }
+        },
+        data(){
+            return {
+                show: false
+            }
+        }
+    };
+    let popup = {
+        template: `<div>
+                        <button @click="on_show">点我显示</button>
+                        <button @click="on_hide">点我隐藏</button>
+                        <p v-show="show">这是popup</p>
+                   </div>`,
+        mixins: [base],
+        data(){
+            return {
+                show: true
+            }
+        }
+
+    };
+    let tip = {
+        template: `<div>
+                    <button v-on="{mouseenter: on_show, mouseleave: on_hide}">鼠标移入提示信息</button>
+                    <p v-show="show">这是一个提示信息</p>
+                </div>`,
+        mixins: [base]
+    };
+
+    const app = new Vue({
+        el: "#app",
+        components: {
+            popup: popup,
+            tip: tip,
+        }
+
+    })
+</script>
+
+
+
+</body>
+</html>

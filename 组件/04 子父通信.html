@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <parent></parent>
+</div>
+<script>
+    let child = {
+        template: `<div>
+                        <p>这是个子组件</p>
+                        <button @click="on_click">点我显示你银行卡余额</button>
+                    </div>`,
+        methods: {
+            on_click: function () {
+                this.$emit("show_balance", this.balance)
+            }
+        },
+        data(){
+            return {
+                balance: 998,
+            }
+        }
+
+    };
+    // 子组件 提交一个事件 可以携带值
+    let parent = {
+        template: `<div>
+                    <h1>这是个父组件</h1>
+
+                    <child @show_balance="my_func"></child>
+                      <span>{{p_balance}}</span>
+                    </div>`,
+        components:{
+            child: child
+        },
+        data(){
+            return {
+                username: "peiqi",
+                p_balance: ""
+            }
+        },
+        methods:{
+            my_func: function (data) {
+                this.p_balance = data
+            }
+        }
+    };
+
+    const app = new Vue({
+        el: "#app",
+        components: {
+            // 注册组件
+            parent: parent
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>展示你们的爱好</h1>
+    <ul>
+        <li v-for="hobby in hobby_list">{{hobby}}</li>
+    </ul>
+
+    <h1>展示你们喜欢吃的食物</h1>
+    <ul>
+        <li v-for="food in food_list">{{food.name}}它的价格是：{{food.price}}</li>
+    </ul>
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            hobby_list: ["美女", "LOL", "吃鸡"],
+            food_list: [
+                {
+                    name: "臭豆腐",
+                    price: 6,
+                },
+                {
+                    name: "榴莲加韭菜盒子一起吃",
+                    price: 100,
+                }
+
+            ]
+        }
+    })
+</script>
+</body>
+</html>
